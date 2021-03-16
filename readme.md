@@ -13,11 +13,11 @@
 <table>
   <thead>
     <th>Template Home</th>
-    <th>Template Detail</th>
-    <th>Template Checkout</th>
+    <th>Template Detail (WIP)</th>
+    <th>Template Checkout (WIP)</th>
   </thead>
   <tbody>
-    <td><img src='./home.gif' /></td>
+    <td><img src='./home.mp4' /></td>
     <td><img src='./login.png' /></td>
     <td><img src='./login.png' /></td>
   </tbody>
