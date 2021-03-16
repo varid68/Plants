@@ -19,7 +19,7 @@ const propsType = {
 const propsDefault = {
   size: 'mini',
   color: BLACK_ALL,
-  type: 'Exo',
+  type: 'Nunito',
   weight: 500,
   line: undefined,
   centered: false
