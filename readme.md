@@ -1,4 +1,4 @@
-# React Native Boilerplate
+# React Native Plants Online Store Design Concept
 
 
 ### `CARA PENULISAN SYNTAX`
@@ -12,11 +12,15 @@
 
 <table>
   <thead>
-    <th>Template Walkthrough</th>
-    <th>Template Login</th>
+    <th>Template Home</th>
+    <th>Template Detail</th>
+    <th>Template Checkout</th>
   </thead>
   <tbody>
-    <td><img src='./walkthrough.gif' /></td>
+    <td><img src='./home.gif' /></td>
+    <td><img src='./login.png' /></td>
     <td><img src='./login.png' /></td>
   </tbody>
 </table>
+
+Thanks to Brandoxe for his awesome design [link uplabs](https://www.uplabs.com/posts/plant-online-store-app)
