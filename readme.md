@@ -17,7 +17,7 @@
     <th>Template Checkout (WIP)</th>
   </thead>
   <tbody>
-    <td><img src='./home.gif' height='600' width='430' /></td>
+    <td><img src='./home.gif' height='560' width='400' /></td>
     <td><img src='./login.png' /></td>
     <td><img src='./login.png' /></td>
   </tbody>
