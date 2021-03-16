@@ -1,10 +1,11 @@
 
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import LoginScreen from 'screens/Login/LoginScreen'
 import SplashScreen from 'screens/SplashScreen'
 import WalkthroughScreen from 'screens/Walkthrough'
-import KosonganScreen from 'screens/Kosongan/KosonganScreen'
+import CheckoutScreen from 'screens/Checkout/CheckoutScreen'
+import DetailScreen from 'screens/Detail/DetailScreen'
+import HomeScreen from 'screens/Home/HomeScreen'
 
 
 const Stack = createStackNavigator()
@@ -18,8 +19,9 @@ function App() {
       initialRouteName='Splash'>
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="Walkthrough" component={WalkthroughScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Kosongan" component={KosonganScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Detail" component={DetailScreen} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} />
     </Stack.Navigator>
   )
 }

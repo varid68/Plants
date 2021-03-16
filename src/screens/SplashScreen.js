@@ -9,26 +9,10 @@ import { getItemStorage } from 'actions/storage'
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      _checkLogin()
+      navigation.dispatch(StackActions.replace('Home'))
     }, 1000)
   }, [])
 
-  const _checkLogin = async () => {
-    const login = await getItemStorage('login')
-    const first_install = await getItemStorage('first_install')
-
-    let screen = ''
-
-    if (first_install == null && login == null) {
-      screen = 'Walkthrough'
-    } else if (!first_install && !login) {
-      screen = 'Login'
-    } else if (!first_install && login) {
-      screen = 'Kosongan'
-    }
-
-    navigation.dispatch(StackActions.replace(screen))
-  }
 
   return (
     <View style={styles.wrapper}>
@@ -36,7 +20,7 @@ const SplashScreen = ({ navigation }) => {
       <Image
         style={styles.img}
         source={require('../assets/images/splashscreen.png')} />
-      <Text style={styles.simovie}>Si movie</Text>
+      <Text style={styles.simovie}>Si Plants</Text>
     </View>
   )
 }
@@ -55,7 +39,6 @@ const styles = StyleSheet.create({
   simovie: {
     fontFamily: 'Lobster-Regular',
     textAlign: 'center',
-    color: WHITE,
     fontSize: 40,
     marginTop: 10
   }
