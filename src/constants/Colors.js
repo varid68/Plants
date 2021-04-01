@@ -1,5 +1,6 @@
 export const GREEN          = '#1ca953'
 export const MALACHITE      = '#0AB94E'
+export const GREEN_20       = '#20934d'
 export const BLACK          = '#000000'
 export const DUSTY_GRAY     = '#959595'
 export const GRAY           = '#8b8b8b'
