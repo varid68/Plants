@@ -5,81 +5,33 @@ import { getListData } from 'actions/axios'
 export const DetailContext = createContext()
 
 function DetailContextProvider(props) {
-  const [items, setItems] = useState({
-    list: [], isLoadMore: true, offset: 0, count: 0, order: 'desc'
-  })
-  const [loading, setLoading] = useState({
-    initial: true,
-    refreshing: false
+  const [counter, setCounter] = useState(1)
+  const [text, setText] = useState('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio inventore itaque sunt corporis illum, sequi dolorem quasi cum non, ipsam exercitationem consequuntur. Dolore modi nostrum provident doloremque eaque corporis quia!, Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptates repellendus? Et, tempora excepturi nesciunt libero, unde fugit qui vitae necessitatibus quo, cumque nobis? Quasi at illum vel maxime sapiente.')
+  const [collapse, setCollapse] = useState(false)
+  const [price, setPrice] = useState({
+    base: 50.99,
+    result: 50.99
   })
 
   useEffect(() => {
-
-  }, [])
+    counter > 0 && setPrice({ ...price, result: price.base * counter })
+  }, [counter])
 
   addRemoveListenerBack(props)
 
-  const _fetchLoadMore = (param = {}) => {
-    let clone = { ...items }
-    const params = {
-      ...param,
-      limit: 7,
-      offset: clone['offset'] + 7,
-      sortby: 'id_surat',
-      order: clone['order']
-    }
+  const _setCounter = (flag) => flag == 'plus' ? setCounter(counter + 1) : setCounter(counter - 1)
 
-    // DISABLE LOADING FOOTER END ITEM
-    if (clone['list'].length === clone['count']) {
-      setItems({ ...items, isLoadMore: false })
-      return false
-    }
-
-    getListData('/surat')
-      .then(res => {
-        setItems({
-          ...items,
-          list: res.payload !== null ? clone['list'].concat(res.payload) : [],
-          offset: res.offset,
-          count: res.count,
-          isLoadMore: false
-        })
-    })
-    .catch(e => showToast(e.description))
-  }
-
-  // 
-  const _fetchWithParam = (param = {}, loader) => {
-    const params = {
-      ...param,
-      limit: 7,
-      offset: 0,
-      sortby: 'id_surat',
-      orderby: param.order ? param.order : 'desc'
-    }
-
-    setLoading({ ...loading, [loader]: true })
-
-    getListData('/surat')
-      .then(res => {
-        setItems({
-          ...items,
-          list: res.payload !== null ? [].concat(res.payload) : [],
-          offset: 0,
-          count: res.count,
-          isLoadMore: true,
-          order: param.order ? param.order : 'asc'
-        })
-      setLoading({ ...loading, [loader]: false })
-    })
-    .catch(e => showToast(e.description))
-  }
+  const _setCollapse = () => setCollapse(!collapse)
 
   return (
-    <DetailContext.Provider 
+    <DetailContext.Provider
       value={{
-        items,
-        loading
+        counter,
+        text,
+        collapse,
+        price,
+        _setCounter,
+        _setCollapse
       }}>
       {props.children}
     </DetailContext.Provider>

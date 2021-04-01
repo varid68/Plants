@@ -1,16 +1,115 @@
-import React, { useContext } from 'react'
-import { View } from 'react-native'
+import React, { Fragment, useContext } from 'react'
+import { ScrollView, View, Image, TouchableOpacity, StatusBar } from 'react-native'
 import Text from 'components/Text'
-import SafeAreaView from 'react-native-safe-area-context'
+import Icon from 'react-native-vector-icons/AntDesign'
+import styles from './DetailStyles'
+import { BLACK, GRAY, GREEN, PANACHE } from 'constants/Colors'
 
 import { DetailContext } from './DetailContext'
+import { WHITE } from 'constants/Colors'
 
 
 const DetailView = ({ navigation }) => {
   const value = useContext(DetailContext)
+  console.log(value)
 
   return (
-    <Text>INI PAGE Detail</Text>
+    <Fragment>
+      <StatusBar hidden={false} backgroundColor={GREEN} />
+      <ScrollView>
+        <View style={styles.headerWrap}>
+          <TouchableOpacity style={{ marginBottom: 40 }}>
+            <Icon
+              name='arrowleft'
+              color={WHITE}
+              size={30} />
+          </TouchableOpacity>
+          <Text
+            color={WHITE}
+            weight={700}
+            size='large'>Dracaena Plant</Text>
+          <View style={{ marginVertical: 20 }}>
+            <Text
+              color={WHITE}
+              weight={500}>Day (estimation):</Text>
+            <Text
+              color={WHITE}
+              weight={700}
+              size='large'>24</Text>
+          </View>
+          <View>
+            <Text
+              color={WHITE}
+              weight={500}>Height (incl pot):</Text>
+            <Text
+              color={WHITE}
+              weight={700}
+              size='large'>4.8’’</Text>
+          </View>
+          <View style={{ marginVertical: 20 }}>
+            <Text
+              color={WHITE}
+              weight={500}>Water:</Text>
+            <Text
+              color={WHITE}
+              weight={700}
+              size='large'>Once a week</Text>
+          </View>
+
+          {/* <Image style={{
+            position: 'absolute',
+            top: 10,
+            resizeMode: 'contain',
+            height: 540,
+            zIndex: 933339
+          }} source={require('images/PngItem.png')} /> */}
+        </View>
+
+        <View style={styles.descWrap}>
+          <Text
+            size='large'
+            weight={700}>Description</Text>
+          <View style={styles.quantity}>
+            <TouchableOpacity
+              onPress={value._setCounter.bind(null, 'plus')}
+              style={[styles.plusMinus, { backgroundColor: GREEN }]}>
+              <Icon name='plus' size={16} color={WHITE} />
+            </TouchableOpacity>
+            <Text
+              weight={700}
+              style={{ marginHorizontal: 20 }}>{value.counter}</Text>
+            <TouchableOpacity
+              onPress={value.counter > 0 ? value._setCounter.bind(null, 'minus') : null}
+              style={[styles.plusMinus, { backgroundColor: PANACHE }]}>
+              <Icon name='minus' size={16} color={BLACK} />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <Text
+          size='small'
+          color={GRAY}
+          style={styles.text}>{value.collapse ? value.text : `${value.text.substring(0, 150)}...`} <Text color='#ec6161' onPress={value._setCollapse}>Read {value.collapse ? 'less' : 'more'}</Text></Text>
+
+      </ScrollView>
+      <View style={styles.footerWrap}>
+        <Text
+          weight={700}
+          size='huge'>${value.price.result.toFixed(2)}</Text>
+        <TouchableOpacity style={styles.cartWrap}>
+          <Text
+            color={WHITE}
+            size='small'
+            weight={600}
+            style={{ marginRight: 20 }}>Add to cart</Text>
+          <View style={styles.cart}>
+            <Image
+              style={styles.cartImg}
+              source={require('images/Cart_white.png')} />
+          </View>
+        </TouchableOpacity>
+      </View>
+    </Fragment>
   )
 }
 
