@@ -16,7 +16,7 @@ function App() {
       screenOptions={{
         headerShown: false
       }}
-      initialRouteName='Splash'>
+      initialRouteName='Detail'>
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="Walkthrough" component={WalkthroughScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
