@@ -1,26 +1,21 @@
 # React Native Plants Online Store Design Concept
 
+### `PREVIEW APPS`
+<img src="Animation.gif" alt="image" />
 
-### `CARA PENULISAN SYNTAX`
-|Tipe|Penulisan|Contoh| 
-|---|---|---|
-|Class/Component|`CamelCase`|`class LoginScreen`|
-|Local Variable|`pascalCase`|`var dataUser = []`|
-|Method|`_underScorePascalCase`|`_getDataUser = async () => {}`|
 
-### `SCREENSHOT TEMPLATE`
+### Requirements
+- [Node](https://nodejs.org/) >= 12.18.1
+- [npm](https://npmjs.com) >= 6.14.15
 
-<table>
-  <thead>
-    <th>Template Home</th>
-    <th>Template Detail (WIP)</th>
-    <th>Template Checkout (WIP)</th>
-  </thead>
-  <tbody>
-    <td><img src='./home.gif' height='550' width='420' /></td>
-    <td><img src='./login.png' /></td>
-    <td><img src='./login.png' /></td>
-  </tbody>
-</table>
+### Installation
+
+Clone this repo
+
+```sh
+$ git clone https://github.com/varid68/Plants-Store-Design-Concept.git
+$ cd Plants-Store-Design-Concept
+$ yarn install or npm i
+```
 
 Thanks to Brandoxe for his awesome design [link uplabs](https://www.uplabs.com/posts/plant-online-store-app)
