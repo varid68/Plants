@@ -67,11 +67,13 @@ const HomeView = ({ navigation }) => {
         extraData={value.list}
         renderItem={({ item, index }) => (
           <View style={style.cardItemContainer}>
-            <Image
-              style={style.itemImg}
-              source={require('images/Daco_6031161.png')} />
-            <Text weight={600} size='small'>{item.name}</Text>
-            <Text>$<Text weight={700} size='huge'>{item.price}</Text></Text>
+            <TouchableOpacity onPress={value._navigate.bind(null, item)}>
+              <Image
+                style={style.itemImg}
+                source={require('images/Daco_6031161.png')} />
+              <Text weight={600} size='small'>{item.name}</Text>
+              <Text>$<Text weight={700} size='huge'>{item.price}</Text></Text>
+            </TouchableOpacity>
 
             <TouchableOpacity
               onPress={value._setFavorited.bind(null, item, value.list.filter(e => e.selected == true).map(e => e.key)[0])}

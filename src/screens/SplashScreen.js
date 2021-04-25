@@ -9,7 +9,7 @@ import { getItemStorage } from 'actions/storage'
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.dispatch(StackActions.replace('Detail'))
+      navigation.dispatch(StackActions.replace('Home'))
     }, 1000)
   }, [])
 

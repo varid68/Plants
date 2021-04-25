@@ -115,6 +115,8 @@ function HomeContextProvider(props) {
 
   addRemoveListenerBack(props)
 
+  const _navigate = (item) => props.navigation.navigate('Detail', item)
+
   const _setSelected = (key) => {
     let _list = [...list]
 
@@ -141,7 +143,8 @@ function HomeContextProvider(props) {
         list,
         refresh,
         _setSelected,
-        _setFavorited
+        _setFavorited,
+        _navigate
       }}>
       {props.children}
     </HomeContext.Provider>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { showToast, addRemoveListenerBack } from 'services/common'
-import { getListData } from 'actions/axios'
+import { addRemoveListenerBack } from 'services/common'
 
 export const DetailContext = createContext()
 
@@ -12,10 +11,17 @@ function DetailContextProvider(props) {
     base: 50.99,
     result: 50.99
   })
+  const [name, setName] = useState('')
 
   useEffect(() => {
     counter > 0 && setPrice({ ...price, result: price.base * counter })
   }, [counter])
+
+  useEffect(() => {
+    const { name, price } = props.route.params
+    setName(name)
+    setPrice({ base: price, result: price })
+  }, [])
 
   addRemoveListenerBack(props)
 
@@ -30,6 +36,7 @@ function DetailContextProvider(props) {
         text,
         collapse,
         price,
+        name,
         _setCounter,
         _setCollapse
       }}>

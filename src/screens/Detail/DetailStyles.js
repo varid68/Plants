@@ -6,15 +6,16 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   headerWrap: {
     backgroundColor: MALACHITE,
-    padding: 20,
+    paddingVertical: 20,
     zIndex: 8,
+    position: 'relative',
     elevation: 20
   },
 
   descWrap: {
     ...LIST_ITEM_BASE_CENTER,
     padding: 20,
-    marginTop: 60
+    marginTop: 30
   },
   quantity: {
     flexDirection: 'row',
@@ -26,7 +27,7 @@ export default StyleSheet.create({
   },
   text: {
     paddingHorizontal: 20,
-    lineHeight: 40,
+    lineHeight: 30,
     marginBottom: 20
   },
 

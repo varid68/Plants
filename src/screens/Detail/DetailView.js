@@ -4,6 +4,7 @@ import Text from 'components/Text'
 import Icon from 'react-native-vector-icons/AntDesign'
 import styles from './DetailStyles'
 import { BLACK, GRAY, GREEN, PANACHE } from 'constants/Colors'
+import { HP50 } from 'constants/Sizes'
 
 import { DetailContext } from './DetailContext'
 import { WHITE } from 'constants/Colors'
@@ -11,58 +12,63 @@ import { WHITE } from 'constants/Colors'
 
 const DetailView = ({ navigation }) => {
   const value = useContext(DetailContext)
-  console.log(value)
 
   return (
     <Fragment>
       <StatusBar hidden={false} backgroundColor={GREEN} />
       <ScrollView>
         <View style={styles.headerWrap}>
-          <TouchableOpacity style={{ marginBottom: 40 }}>
-            <Icon
-              name='arrowleft'
-              color={WHITE}
-              size={30} />
-          </TouchableOpacity>
-          <Text
-            color={WHITE}
-            weight={700}
-            size='large'>Dracaena Plant</Text>
-          <View style={{ marginVertical: 20 }}>
-            <Text
-              color={WHITE}
-              weight={500}>Day (estimation):</Text>
-            <Text
-              color={WHITE}
-              weight={700}
-              size='large'>24</Text>
-          </View>
-          <View>
-            <Text
-              color={WHITE}
-              weight={500}>Height (incl pot):</Text>
+          <Image style={{
+            position: 'absolute',
+            top: 40,
+            left: -140,
+            resizeMode: 'contain',
+            height: HP50 - 30,
+            zIndex: 99
+          }} source={require('images/PngItem.png')} />
+
+          <View style={{ paddingLeft: 20 }}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={{ marginBottom: 20 }}>
+              <Icon
+                name='arrowleft'
+                color={WHITE}
+                size={30} />
+            </TouchableOpacity>
             <Text
               color={WHITE}
               weight={700}
-              size='large'>4.8’’</Text>
-          </View>
-          <View style={{ marginVertical: 20 }}>
-            <Text
-              color={WHITE}
-              weight={500}>Water:</Text>
-            <Text
-              color={WHITE}
-              weight={700}
-              size='large'>Once a week</Text>
+              size='large'>{value.name}</Text>
+            <View style={{ marginVertical: 20 }}>
+              <Text
+                color={WHITE}
+                weight={500}>Day (estimation):</Text>
+              <Text
+                color={WHITE}
+                weight={700}
+                size='large'>24</Text>
+            </View>
+            <View>
+              <Text
+                color={WHITE}
+                weight={500}>Height (incl pot):</Text>
+              <Text
+                color={WHITE}
+                weight={700}
+                size='large'>4.8’’</Text>
+            </View>
+            <View style={{ marginVertical: 20 }}>
+              <Text
+                color={WHITE}
+                weight={500}>Water:</Text>
+              <Text
+                color={WHITE}
+                weight={700}
+                size='large'>Once a week</Text>
+            </View>
           </View>
 
-          {/* <Image style={{
-            position: 'absolute',
-            top: 10,
-            resizeMode: 'contain',
-            height: 540,
-            zIndex: 933339
-          }} source={require('images/PngItem.png')} /> */}
         </View>
 
         <View style={styles.descWrap}>

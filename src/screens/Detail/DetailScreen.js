@@ -3,9 +3,9 @@ import DetailView from './DetailView'
 import DetailContextProvider from './DetailContext'
 
 
-const DetailScreen = ({ navigation }) => {
+const DetailScreen = ({ navigation, route }) => {
   return (
-    <DetailContextProvider navigation={navigation}>
+    <DetailContextProvider navigation={navigation} route={route}>
       <DetailView navigation={navigation} />
     </DetailContextProvider>
   )
