@@ -1,7 +1,9 @@
 # React Native Plants Online Store Design Concept
 
 ### `PREVIEW APPS`
-<img src="Animation.gif" alt="image" />
+<kbd>
+  <img src="Animation.gif" alt="image" height='600' /> 
+</kbd>
 
 
 ### Requirements
@@ -18,4 +20,4 @@ $ cd Plants-Store-Design-Concept
 $ yarn install or npm i
 ```
 
-Thanks to Brandoxe for his awesome design [link uplabs](https://www.uplabs.com/posts/plant-online-store-app)
+Thanks to Brandoxe for his awesome design -> [link uplabs](https://www.uplabs.com/posts/plant-online-store-app)
